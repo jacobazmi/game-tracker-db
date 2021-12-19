@@ -11,7 +11,8 @@ CREATE table games (
 game_id INT NOT NULL AUTO_INCREMENT primary key, 
 title text, 
 release_date date, 
-platforms set('PC','PS4','PS5','Switch','XONE','Series X','Stadia'));
+platforms set('PC','PS4','PS5','Switch','XONE','Series X','Stadia'),
+length double);
 
 
 create table users (
@@ -27,14 +28,14 @@ foreign key (user_id) references users(user_id),
 foreign key (game_id) references games(game_id)
 );
 
-insert into games (title, release_date, platforms) values 
-('A Way Out', '2018-03-23', ('PC,PS4,XONE')),
-('Control', '2019-08-27', ('PC,PS4,XONE,Stadia')),
-('The Last of Us Part II', '2020-06-19', ('PS4')),
-('The Legend of Zelda: Breath of the Wild', '2017-03-03', ('Switch')),
-('Luigi\'s Mansion 3', '2019-10-31', ('Switch')),
-('A Plague Tale: Innocence', '2019-05-14', ('PC,Series X,XONE,PS5,PS4')),
-('Tiny Tina\'s Wonderlands', '2022-03-25', ('PC,Series X,PS5,XONE,PS4'));
+insert into games (title, release_date, platforms, length) values 
+('A Way Out', '2018-03-23', ('PC,PS4,XONE'), 15),
+('Control', '2019-08-27', ('PC,PS4,XONE,Stadia'), 10),
+('The Last of Us Part II', '2020-06-19', ('PS4'), 24),
+('The Legend of Zelda: Breath of the Wild', '2017-03-03', ('Switch'), 50),
+('Luigi\'s Mansion 3', '2019-10-31', ('Switch'), 12),
+('A Plague Tale: Innocence', '2019-05-14', ('PC,Series X,XONE,PS5,PS4'), 6),
+('Tiny Tina\'s Wonderlands', '2022-03-25', ('PC,Series X,PS5,XONE,PS4'), 60);
 
 insert into users (user_id) values 
 ('4b931b74-9531-4cb6-a766-e66e92f3a22f'),
